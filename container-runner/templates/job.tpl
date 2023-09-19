@@ -1,30 +1,27 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: actions-runner-job
+  name: github-runner
   labels:
-    environment: {{ .Values.ENVIRONMENT }}
-    organisation: {{ .Values.ORGANISATION }}
-    repository:  {{ .Values.REPOSITORY }}
+    app: {{ .Values.APP_NAME }}
 spec:
   template:
     spec:
       containers:
-      - name: {{ .Values.APP_NAME }}
-        image: {{ .Values.IMAGE_NAME }}
-        imagePullPolicy: IfNotPresent
-        env: 
-          - name: ORGANISATION
-            value: {{ .Values.ORGANISATION }}
-          - name: REPOSITORY 
-            value: {{ .Values.REPOSITORY }}
-          - name: GITHUB_PAT
-            valueFrom:
-              secretKeyRef:
-                name: github-pat
-                key: pat-token
-          - name: ENVIRONMENT
-            value: {{ .Values.ENVIRONMENT }}
+        - name: {{ .Values.APP_NAME }}
+          image: {{ .Values.IMAGE_NAME }}
+          imagePullPolicy: IfNotPresent
+          env: 
+            - name: ORGANISATION
+              value: {{ .Values.env.ORGANISATION }}
+            - name: REPOSITORY 
+              value: {{ .Values.env.REPOSITORY }}
+            - name: GITHUB_PAT
+              valueFrom:
+                secretKeyRef:
+                  name: github-pat
+                  key: pat-token
+            - name: ENVIRONMENT
+              value: {{ .Values.env.ENVIRONMENT }}
       restartPolicy: Never 
   backoffLimit: 1
-
