@@ -1,0 +1,4 @@
+apiVersion: v2 
+name: K8S Github Runner
+version: 0.0.2
+description: Chart for deploying Github Runner as a Container
