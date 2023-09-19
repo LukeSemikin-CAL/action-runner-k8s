@@ -5,7 +5,7 @@ metadata:
   labels:
     app: {{ .Values.APP_NAME }}
 spec: 
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: {{ .Values.APP_NAME }}
@@ -30,5 +30,3 @@ spec:
                   key: pat-token
             - name: ENVIRONMENT
               value: {{ .Values.env.ENVIRONMENT }}
-
-
