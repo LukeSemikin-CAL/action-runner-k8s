@@ -3,4 +3,4 @@ kind: Secret
 metadata: 
   name: github-pat
 data:
-  pat_token: <pat_token>
+  pat-token: <pat_token>
