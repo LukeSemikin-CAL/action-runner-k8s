@@ -1,0 +1,6 @@
+APP_NAME: ghub-runner
+IMAGE_NAME: ghub_runner:latest
+env:
+  ORGANISATION: LukeSemikin-CAL
+  REPOSITORY: action-runner-k8s
+  ENVIRONMENT: non-prod
