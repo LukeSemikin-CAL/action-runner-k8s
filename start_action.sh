@@ -10,7 +10,7 @@ REG_TOKEN=$(curl -sX POST -H "Authorization: Bearer ${GITHUB_PAT}" https://api.g
 
 cd /home/docker/actions-runner
 
-./config.sh --unattended --url https://github.com/${ORGANIZATION}/${REPOSITORY} --token ${REG_TOKEN} --labels ${ENVIRONMENT}
+./config.sh --unattended --url https://github.com/${ORGANIZATION}/${REPOSITORY} --name $(hostname)--token ${REG_TOKEN} --labels ${ENVIRONMENT}
 
 cleanup() {
     echo "Removing runner..."
