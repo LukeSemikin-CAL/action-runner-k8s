@@ -1,0 +1,30 @@
+name: Create New Release
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+
+  Create_New_Release:
+    runs-on:
+      - self-hosted
+      - non-prod
+
+    steps:
+
+        - name: Checkout Repository
+          uses: actions/checkout@v3
+
+        - name: Create Release 
+          uses: actions/create-release@v1
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          with:
+            tag_name: v0.0.1
+            release_name: Release v0.0.1
+            body: |
+              Changes in this Release 
+                - Working Docker Container 
+            draft: false
+            prerelease: true
