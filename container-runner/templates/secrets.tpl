@@ -1,6 +1,6 @@
 apiVersion: v1
 kind: Secret
 metadata: 
-  name: github-pat-secret
+  name: github-pat
 data:
-  .secret-value: <PAT-TOKEN>
+  pat_token: <pat_token>
