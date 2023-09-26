@@ -1,10 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: actions-runner-deployment
+  name: github-runner-{{ .Values.env.REPOSITORY }}
   labels:
     app: {{ .Values.APP_NAME }}
 spec: 
+  schedulerName: runner-scheduler
   replicas: 1
   selector:
     matchLabels:
