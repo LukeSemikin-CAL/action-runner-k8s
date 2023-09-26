@@ -1,5 +1,6 @@
 APP_NAME: ghub-runner
 IMAGE_NAME: ghub_runner:latest
+SCHEDULER_IMAGE_NAME: runner-scheduler:v0.0.1
 env:
   ORGANISATION: LukeSemikin-CAL
   REPOSITORY: action-runner-k8s
