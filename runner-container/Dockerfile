@@ -28,4 +28,3 @@ USER docker
 
 #Set Entrypoint
 ENTRYPOINT ["./start_action.sh"]
-
